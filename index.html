@@ -9,42 +9,60 @@
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
       background: url('background.jpg') center/cover no-repeat fixed;
-      color: #222;
+      color: #111;
     }
     header {
-      background: #111827;
-      color: white;
       padding: 16px;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
       font-weight: 600;
+    }
+    .logo {
+      font-size: 24px;
     }
     .container {
       padding: 16px;
       max-width: 640px;
       margin: auto;
-      background: rgba(255,255,255,0.9);
-      border-radius: 16px;
     }
     .category {
-      background: white;
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 12px;
+      background: #e8f0ff;
+      border-radius: 20px;
+      padding: 18px;
+      margin-bottom: 16px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      text-align: center;
     }
-    .category:hover { background: #f0f0f0; }
+    .category-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .category-sub {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-top: 6px;
+    }
     .back {
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       color: #2563eb;
       cursor: pointer;
       font-weight: 500;
     }
     .book {
       background: white;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -53,15 +71,21 @@
       text-decoration: none;
       background: #22c55e;
       color: white;
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 8px 14px;
+      border-radius: 10px;
       font-size: 14px;
+      font-weight: 500;
     }
     .book-title { font-size: 14px; font-weight: 500; }
   </style>
 </head>
 <body>
-  <header>📚 Funlearning.books</header>
+  <header>
+    <div class="brand">
+      <div class="logo">🦖</div>
+      <div class="name">Funlearning.books</div>
+    </div>
+  </header>
   <div class="container" id="app"></div>
 
   <script>
