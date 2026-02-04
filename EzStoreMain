@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Book Store</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #222;
+    }
+    header {
+      background: #111827;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .container {
+      padding: 16px;
+      max-width: 640px;
+      margin: auto;
+    }
+    .category {
+      background: white;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .category:hover { background: #f0f0f0; }
+    .back {
+      margin-bottom: 12px;
+      color: #2563eb;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .book {
+      background: white;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .book a {
+      text-decoration: none;
+      background: #22c55e;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .book-title { font-size: 14px; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <header>📚 My TikTok Book Store</header>
+  <div class="container" id="app"></div>
+
+  <script>
+    const data = {
+      "Book for 1yo": [
+        { title: "Baby First Words", link: "https://tiktok.com/your-affiliate-link-1" },
+        { title: "Touch & Feel Animals", link: "https://tiktok.com/your-affiliate-link-2" }
+      ],
+      "Book for Primary School": [
+        { title: "Basic Math Workbook", link: "https://tiktok.com/your-affiliate-link-3" },
+        { title: "Fun English Reading", link: "https://tiktok.com/your-affiliate-link-4" }
+      ],
+      "Book for High School": [
+        { title: "SPM Revision Guide", link: "https://tiktok.com/your-affiliate-link-5" },
+        { title: "Science Notes", link: "https://tiktok.com/your-affiliate-link-6" }
+      ]
+    };
+
+    const app = document.getElementById('app');
+
+    function showCategories() {
+      app.innerHTML = '';
+      Object.keys(data).forEach(category => {
+        const div = document.createElement('div');
+        div.className = 'category';
+        div.textContent = category;
+        div.onclick = () => showBooks(category);
+        app.appendChild(div);
+      });
+    }
+
+    function showBooks(category) {
+      app.innerHTML = '';
+
+      const back = document.createElement('div');
+      back.className = 'back';
+      back.textContent = '← Back to categories';
+      back.onclick = showCategories;
+      app.appendChild(back);
+
+      data[category].forEach(book => {
+        const div = document.createElement('div');
+        div.className = 'book';
+
+        const title = document.createElement('div');
+        title.className = 'book-title';
+        title.textContent = book.title;
+
+        const link = document.createElement('a');
+        link.href = book.link;
+        link.target = '_blank';
+        link.textContent = 'Buy';
+
+        div.appendChild(title);
+        div.appendChild(link);
+        app.appendChild(div);
+      });
+    }
+
+    showCategories();
+  </script>
+</body>
+</html>
